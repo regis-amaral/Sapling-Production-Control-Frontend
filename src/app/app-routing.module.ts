@@ -1,4 +1,3 @@
-import { CreateSpecieModule } from './components/specie/create-specie/create-specie.module';
 import { SpecieModule } from './components/specie/specie.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
