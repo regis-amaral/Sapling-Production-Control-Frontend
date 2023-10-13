@@ -9,11 +9,6 @@ const routes: Routes = [
     path: 'specie',
     loadChildren: () =>
       import('./components/specie/specie.module').then((m) => m.SpecieModule),
-  },
-  {
-    path: 'specie/new',
-    loadChildren: () =>
-      import('./components/specie/create-specie/create-specie.module').then((m) => m.CreateSpecieModule),
   }
 ];
 

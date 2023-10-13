@@ -11,7 +11,7 @@ import { SpecieComponent } from './specie.component';
   ],
   imports: [
     CommonModule,
-    SpecieRoutingModule
+    SpecieRoutingModule,
   ]
 })
 export class SpecieModule { }

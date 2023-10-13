@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  public bntInicio: string = 'Inicio'
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 }
