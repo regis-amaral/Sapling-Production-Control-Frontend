@@ -3,13 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { SpecieRoutingModule } from './specie-routing.module';
 import { SpecieComponent } from './specie.component';
-import { CreateSpecieComponent } from './create-specie/create-specie.component';
 
 
 @NgModule({
   declarations: [
-    SpecieComponent,
-    CreateSpecieComponent
+    SpecieComponent
   ],
   imports: [
     CommonModule,
