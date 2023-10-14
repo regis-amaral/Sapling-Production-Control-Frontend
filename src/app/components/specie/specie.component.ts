@@ -53,21 +53,29 @@ export class SpecieComponent implements OnInit {
     dialogRef.afterClosed().subscribe(body => {
       if(body !== undefined){
         if (this.dataSource.has(body.id)) {         // EDIT ELEMENT
-          this.specieService.edit(body)
-            .subscribe((id: number) => {
+          this.specieService.edit(body).subscribe({
+            next: (id: number) => {
               body.id = id;
               this.dataSource.set(body.id, body);
               this.table.renderRows();
               this.notifier.notify('success', 'Espécie atualizada!');
-            })
+            },
+            error: (data) => {
+              this.notifier.notify('error', data.error);
+            }
+          })
         }else{                                      // CREATE NEW ELEMENT
-          this.specieService.create(body)
-            .subscribe((id: number) => {
+          this.specieService.create(body).subscribe({
+            next: (id: number) => {
               body.id = id;
               this.dataSource.set(body.id, body);
               this.table.renderRows();
               this.notifier.notify('success', 'Espécie criada!');
-            })
+            },
+            error: (data) => {
+              this.notifier.notify('error', data.error);
+            }
+          })
         }
       }
     });
@@ -78,9 +86,6 @@ export class SpecieComponent implements OnInit {
       next: () => {this.dataSource.delete(id)},
       error: (data) => {
         this.notifier.notify('error', data.error);
-      },
-      complete: () =>{
-        this.notifier.notify('success', 'Espécie deletada!');
       }
     });
   }

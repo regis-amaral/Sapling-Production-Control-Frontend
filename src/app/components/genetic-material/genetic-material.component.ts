@@ -51,32 +51,46 @@ export class GeneticMaterialComponent implements OnInit {
   }
 
   openDialog(element: any): void {
+    console.log(element)
     const dialogRef = this.dialog.open(GeneticMaterialFormComponent, {
       data: {
         id: element === null ? null : element.id,
         name: element === null ? null : element.name,
-        specie: element === null ? null : element.specie,
+        specie: element === null ? <Specie>{id: null, name: null} : element.specie,
         species: this.species
       }
     });
 
     dialogRef.afterClosed().subscribe((body) => {
       if (body !== undefined) {
+        console.log(body)
         if (this.dataSource.has(body.id)) {
           // EDIT ELEMENT
-          this.geneticMaterialService.edit(body).subscribe((id: number) => {
-            body.id = id;
-            this.dataSource.set(body.id, body);
-            this.table.renderRows();
-            this.notifier.notify('success', 'Material Genético atualizado!');
+          this.geneticMaterialService.edit(body).subscribe({
+            next: (id: number) => {
+              body.id = id;
+              body.specie = this.species.find(specie => specie.id === body.specie.id);
+              this.dataSource.set(body.id, body);
+              this.table.renderRows();
+              this.notifier.notify('success', 'Material Genético atualizado!');
+            },
+            error: (data) => {
+              this.notifier.notify('error', data.error);
+            }
           });
         } else {
           // CREATE NEW ELEMENT
-          this.geneticMaterialService.create(body).subscribe((id: number) => {
-            body.id = id;
-            this.dataSource.set(body.id, body);
-            this.table.renderRows();
-            this.notifier.notify('success', 'Material Genético criado!');
+          this.geneticMaterialService.create(body).subscribe({
+            next: (id: number) => {
+              body.id = id;
+              body.specie = this.species.find(specie => specie.id === body.specie.id);
+              this.dataSource.set(body.id, body);
+              this.table.renderRows();
+              this.notifier.notify('success', 'Material Genético criado!');
+            },
+            error: (data) => {
+              this.notifier.notify('error', data.error);
+            }
           });
         }
       }
@@ -90,10 +104,7 @@ export class GeneticMaterialComponent implements OnInit {
       },
       error: (data) => {
         this.notifier.notify('error', data.error);
-      },
-      complete: () => {
-        this.notifier.notify('success', 'Material Genético deletado!');
-      },
+      }
     });
   }
 

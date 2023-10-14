@@ -12,7 +12,7 @@ import { Specie } from 'src/app/@core/models/Specie.model';
 export class GeneticMaterialFormComponent implements OnInit{
   public element: GeneticMaterial
   public isChange: boolean;
-  public selectedSpecie: number;
+  public selectedSpecieId: Specie;
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
@@ -32,7 +32,7 @@ export class GeneticMaterialFormComponent implements OnInit{
     }
 
     if (this.data.specie) {
-      this.selectedSpecie = this.data.specie.id;
+      this.selectedSpecieId = this.data.specie.id;
     }
 
   }

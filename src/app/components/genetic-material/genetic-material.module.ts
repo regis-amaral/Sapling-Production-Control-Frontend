@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 
 import { GeneticMaterialRoutingModule } from './genetic-material-routing.module';
 import { GeneticMaterialComponent } from './genetic-material.component';
@@ -32,7 +32,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatCardModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    NgFor
   ]
 })
 export class GeneticMaterialModule { }
