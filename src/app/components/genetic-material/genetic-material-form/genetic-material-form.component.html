@@ -1,0 +1,26 @@
+<h1 *ngIf="!isChange" mat-dialog-title>Novo Material Genético</h1>
+<h1 *ngIf="isChange" mat-dialog-title>Editar Material Genético</h1>
+<div mat-dialog-content>
+
+  <p>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="data.name">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label>Espécie</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let specie of data.species" [value]="specie.id">
+          {{specie.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
+</div>

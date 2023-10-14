@@ -1,21 +1,22 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { GeneticMaterial } from 'src/app/@core/models/GeneticMaterial';
 import { Specie } from 'src/app/@core/models/Specie.model';
 
 @Component({
-  selector: 'app-specie-form',
-  templateUrl: './specie-form.component.html',
-  styleUrls: ['./specie-form.component.scss']
+  selector: 'app-genetic-material-form',
+  templateUrl: './genetic-material-form.component.html',
+  styleUrls: ['./genetic-material-form.component.scss']
 })
 
-export class SpecieFormComponent implements OnInit{
-  public element: Specie
+export class GeneticMaterialFormComponent implements OnInit{
+  public element: GeneticMaterial
   public isChange: boolean;
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public data: Specie,
-    public dialogRef: MatDialogRef<SpecieFormComponent>,
+    public data: any,
+    public dialogRef: MatDialogRef<GeneticMaterialFormComponent>,
   ) {}
 
   onCancel(): void {

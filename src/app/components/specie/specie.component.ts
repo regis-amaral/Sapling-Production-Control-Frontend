@@ -13,6 +13,7 @@ import { NotifierService } from 'angular-notifier';
 })
 
 export class SpecieComponent implements OnInit {
+
   @ViewChild(MatTable)
   public table: MatTable<any>;
   public displayedColumns: string[] = ['id', 'name', 'actions'];
@@ -29,7 +30,7 @@ export class SpecieComponent implements OnInit {
 
   ngOnInit(): void {
     this.specieService
-      .getSpecies()
+      .getAll()
       .subscribe((data: Specie []) => {
         data.forEach(specie => {
           this.dataSource.set(specie.id, specie);

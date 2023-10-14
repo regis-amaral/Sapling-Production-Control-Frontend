@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit{
     switch (rotaAtual) {
       case '/': this.PAGINA_ATUAL = " \\  Home"; break;
       case '/specie': this.PAGINA_ATUAL = " \\  Espécies"; break;
-      case '/genetic-material': this.PAGINA_ATUAL = " \\  Espécies"; break;
+      case '/genetic-material': this.PAGINA_ATUAL = " \\  Materiais Genéticos"; break;
       default: this.PAGINA_ATUAL = undefined;
     }
   }

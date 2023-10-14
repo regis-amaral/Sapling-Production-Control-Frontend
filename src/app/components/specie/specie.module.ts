@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SpecieRoutingModule } from './specie-routing.module';
@@ -12,7 +12,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ServicesModule } from 'src/app/@core/services/services.module';
-import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
@@ -23,15 +22,15 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     SpecieRoutingModule,
+    ServicesModule,
+    FormsModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule,
-    ServicesModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ]
 })
 export class SpecieModule { }

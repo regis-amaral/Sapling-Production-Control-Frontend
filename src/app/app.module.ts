@@ -10,14 +10,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NotifierModule } from 'angular-notifier';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { GeneticMaterialComponent } from './components/genetic-material/genetic-material.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    GeneticMaterialComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,3 @@
-import { GeneticMaterialModule } from './components/genetic-material/genetic-material.module';
-import { SpecieModule } from './components/specie/specie.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
