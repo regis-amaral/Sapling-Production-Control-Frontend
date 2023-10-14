@@ -5,6 +5,8 @@
 
   @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+  @import "node_modules/angular-notifier/styles.scss";
+
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
   * {
     margin: 0;

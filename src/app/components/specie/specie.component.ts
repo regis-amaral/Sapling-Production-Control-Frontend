@@ -4,37 +4,28 @@ import { SpecieFormComponent } from './specie-form/specie-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { Specie } from 'src/app/@core/models/Specie.model';
-
-
-
-// const ELEMENT_DATA: Specie[] = [
-//   {id: 1, name: 'Hydrogen'},
-//   {id: 2, name: 'Helium'},
-//   {id: 3, name: 'Lithium'},
-//   {id: 4, name: 'Beryllium'},
-//   {id: 5, name: 'Boron'},
-//   {id: 6, name: 'Carbon'},
-//   {id: 7, name: 'Nitrogen'},
-//   {id: 8, name: 'Oxygen'},
-//   {id: 9, name: 'Fluorine'},
-//   {id: 10, name: 'Neon'},
-// ];
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-specie',
   templateUrl: './specie.component.html',
   styleUrls: ['./specie.component.scss']
 })
+
 export class SpecieComponent implements OnInit {
   @ViewChild(MatTable)
   public table: MatTable<any>;
   public displayedColumns: string[] = ['id', 'name', 'actions'];
   public dataSource = new Map<number, Specie>();
+  private readonly notifier: NotifierService;
 
   constructor(
     public dialog: MatDialog,
-    public specieService: SpecieService
-    ) {}
+    public specieService: SpecieService,
+    public notifierService: NotifierService
+    ) {
+      this.notifier = notifierService;
+    }
 
   ngOnInit(): void {
     this.specieService
@@ -66,6 +57,7 @@ export class SpecieComponent implements OnInit {
               body.id = id;
               this.dataSource.set(body.id, body);
               this.table.renderRows();
+              this.notifier.notify('success', 'Espécie atualizada!');
             })
         }else{                                      // CREATE NEW ELEMENT
           this.specieService.create(body)
@@ -73,6 +65,7 @@ export class SpecieComponent implements OnInit {
               body.id = id;
               this.dataSource.set(body.id, body);
               this.table.renderRows();
+              this.notifier.notify('success', 'Espécie criada!');
             })
         }
       }
@@ -80,8 +73,14 @@ export class SpecieComponent implements OnInit {
   }
 
   deleteElement(id: number): void{
-    this.specieService.delete(id).subscribe(() => {
-      this.dataSource.delete(id);
+    this.specieService.delete(id).subscribe({
+      next: () => {this.dataSource.delete(id)},
+      error: (data) => {
+        this.notifier.notify('error', data.error);
+      },
+      complete: () =>{
+        this.notifier.notify('success', 'Espécie deletada!');
+      }
     });
   }
 

@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    NotifierModule.withConfig({
+      // Custom options in here
+      theme: 'material'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
