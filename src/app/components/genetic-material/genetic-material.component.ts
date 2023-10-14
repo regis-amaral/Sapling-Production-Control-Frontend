@@ -50,11 +50,12 @@ export class GeneticMaterialComponent implements OnInit {
       });
   }
 
-  openDialog(element: GeneticMaterial): void {
+  openDialog(element: any): void {
     const dialogRef = this.dialog.open(GeneticMaterialFormComponent, {
       data: {
-        id: element ? element.id : null,
-        name: element ? element.name : '',
+        id: element === null ? null : element.id,
+        name: element === null ? null : element.name,
+        specie: element === null ? null : element.specie,
         species: this.species
       }
     });

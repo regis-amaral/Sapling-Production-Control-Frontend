@@ -26,7 +26,7 @@ export class SpecieFormComponent implements OnInit{
     if(this.data.id !== null){
       this.isChange = true;
     }else{
-      this.isChange = true;
+      this.isChange = false;
     }
   }
 

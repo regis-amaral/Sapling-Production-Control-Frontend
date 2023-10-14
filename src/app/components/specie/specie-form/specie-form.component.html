@@ -1,5 +1,5 @@
-<h1 *ngIf="!isChange" mat-dialog-title>Create Element</h1>
-<h1 *ngIf="isChange" mat-dialog-title>Edit Element</h1>
+<h1 *ngIf="!isChange" mat-dialog-title>Nova Espécie</h1>
+<h1 *ngIf="isChange" mat-dialog-title>Editar Espécie</h1>
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Nome da Espécie</mat-label>
@@ -7,7 +7,6 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button *ngIf="!isChange" mat-button [mat-dialog-close]="data" cdkFocusInitial>Create</button>
-  <button *ngIf="isChange" mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
 </div>

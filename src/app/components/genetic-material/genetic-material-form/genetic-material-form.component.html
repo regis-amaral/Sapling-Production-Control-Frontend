@@ -11,7 +11,7 @@
   <p>
     <mat-form-field>
       <mat-label>Espécie</mat-label>
-      <mat-select>
+      <mat-select [(ngModel)]="selectedSpecie">
         <mat-option *ngFor="let specie of data.species" [value]="specie.id">
           {{specie.name}}
         </mat-option>

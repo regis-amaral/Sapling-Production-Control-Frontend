@@ -12,6 +12,7 @@ import { Specie } from 'src/app/@core/models/Specie.model';
 export class GeneticMaterialFormComponent implements OnInit{
   public element: GeneticMaterial
   public isChange: boolean;
+  public selectedSpecie: number;
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
@@ -27,8 +28,13 @@ export class GeneticMaterialFormComponent implements OnInit{
     if(this.data.id !== null){
       this.isChange = true;
     }else{
-      this.isChange = true;
+      this.isChange = false;
     }
+
+    if (this.data.specie) {
+      this.selectedSpecie = this.data.specie.id;
+    }
+
   }
 
 }
