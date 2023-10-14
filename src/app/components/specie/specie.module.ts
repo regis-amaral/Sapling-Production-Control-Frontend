@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ServicesModule } from 'src/app/@core/services/services.module';
+import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ServicesModule } from 'src/app/@core/services/services.module';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ServicesModule
+    ServicesModule,
+    MatCardModule
   ]
 })
 export class SpecieModule { }

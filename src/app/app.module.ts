@@ -8,22 +8,29 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NotifierModule } from 'angular-notifier';
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GeneticMaterialComponent } from './components/genetic-material/genetic-material.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    GeneticMaterialComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatMenuModule,
     MatIconModule,
     NotifierModule.withConfig({
       // Custom options in here
       theme: 'material'
-    }),
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
