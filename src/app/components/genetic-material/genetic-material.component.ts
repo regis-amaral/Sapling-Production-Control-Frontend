@@ -31,20 +31,25 @@ export class GeneticMaterialComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.geneticMaterialService
-      .getAll()
-      .subscribe((data: GeneticMaterial[]) => {
-        data.forEach((geneticMaterial) => {
-          this.dataSource.set(geneticMaterial.id, geneticMaterial);
-        });
-        //
-      });
-
     this.specieService
       .getAll()
       .subscribe((data: Specie []) => {
+        this.species = [];
         data.forEach(specie => {
           this.species.push(specie);
+        });
+        //
+      });
+    this.changeList()
+  }
+
+  changeList(){
+    this.geneticMaterialService
+      .getAll()
+      .subscribe((data: GeneticMaterial[]) => {
+        this.dataSource = new Map<number, GeneticMaterial>();
+        data.forEach((geneticMaterial) => {
+          this.dataSource.set(geneticMaterial.id, geneticMaterial);
         });
         //
       });
@@ -63,7 +68,7 @@ export class GeneticMaterialComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((body) => {
       if (body !== undefined) {
-        console.log(body)
+        console.log("SALVANDO...", body)
         if (this.dataSource.has(body.id)) {
           // EDIT ELEMENT
           this.geneticMaterialService.edit(body).subscribe({
@@ -71,6 +76,7 @@ export class GeneticMaterialComponent implements OnInit {
               body.id = id;
               body.specie = this.species.find(specie => specie.id === body.specie.id);
               this.dataSource.set(body.id, body);
+              this.changeList();
               this.table.renderRows();
               this.notifier.notify('success', 'Material Genético atualizado!');
             },
@@ -85,6 +91,7 @@ export class GeneticMaterialComponent implements OnInit {
               body.id = id;
               body.specie = this.species.find(specie => specie.id === body.specie.id);
               this.dataSource.set(body.id, body);
+              this.changeList();
               this.table.renderRows();
               this.notifier.notify('success', 'Material Genético criado!');
             },
