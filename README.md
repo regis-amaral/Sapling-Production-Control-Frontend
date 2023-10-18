@@ -1,27 +1,35 @@
 # SaplingProductionControlFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+Este projeto foi desenvolvido por mim usando [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
 
-## Development server
+Ele implementa um frontend para a Api [Sapling Production Control](https://github.com/regis-amaral/Sapling-Production-Control).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Na versão atual apenas duas entidades são gerenciadas:
+- Espécies
+- Materiais Genéticos
 
-## Code scaffolding
+## Execução do projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Na linha de comando, execute `npm install` para instalar as dependências. 
 
-## Build
+Após a instalação das dependências e com o projeto da API [Sapling Production Control](https://github.com/regis-amaral/Sapling-Production-Control) rodando, execute `ng serve` para executar este proejto. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+No navegador, abra o endereço `http://localhost:4200/` para acessar a página do projeto.
 
-## Running unit tests
+## Tela de Gerenciamento de Espécies
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Tela de Gerenciamento de Espécies](image.png)
 
-## Running end-to-end tests
+## Tela de Gerenciamento de Materiais Genéticos
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![Tela de Gerenciamento de Materiais Genéticos](image-1.png)
 
-## Further help
+## Modal para inserção/edição de um Material Genético
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Modal para inserção/edição de um Material Genético](image-2.png)
+
+## Considerações 
+
+Este trabalho me agregou um novo aprendizado em um framework que até então não tinha contato. Após as aulas, percebi que o Angular é um excelênte framework. Apesar dele forçar o desenvolvedor a criar vários arquivos e códigos para cada funcionalidade, cosidero isso uma boa forma de manter uma arquitetura bem estruturada e com os problemas sendo resolvidos em pequenas partes. Essa abordagem proporciona que manutenções e alterações no sistema possam ser feitas de maneira mais fácil e segura.
+
+Agradeço a professora [Maju Testoni](https://github.com/majutestoni) que ministrou o módulo com excelência e me orientou no desenvolvimento do projeto.
