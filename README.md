@@ -1,4 +1,4 @@
-# SaplingProductionControlFrontend
+# Trabalho Final do Módulo de Angular na Turma de Java do Programa +Devs2Blu
 
 Este projeto foi desenvolvido por mim usando [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
 
