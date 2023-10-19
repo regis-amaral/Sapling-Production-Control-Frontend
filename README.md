@@ -38,6 +38,6 @@ Além disso, a organização e padronização que o Angular proporciona são cru
 
 Destaco ainda a capacidade do Angular de promover a reutilização de componentes e serviços, o que contribui para uma abordagem mais eficiente no desenvolvimento de aplicações complexas.
 
-Esta experiência me deixou ainda mais motivado(a) a explorar ainda mais a fundo as possibilidades que o Angular oferece e a aplicar esse aprendizado em projetos futuros.
+Esta experiência me deixou ainda mais motivado a explorar ainda mais a fundo as possibilidades que o Angular oferece e a aplicar esse aprendizado em projetos futuros.
 
 Agradeço a professora [Maju Testoni](https://github.com/majutestoni) que ministrou o módulo com excelência e me orientou no desenvolvimento do projeto.
