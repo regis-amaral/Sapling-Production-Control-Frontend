@@ -14,7 +14,7 @@ Na linha de comando, execute `npm install` para instalar as dependências.
 
 Após a instalação das dependências e com o projeto da API [Sapling Production Control](https://github.com/regis-amaral/Sapling-Production-Control) rodando, execute `ng serve` para executar este projeto. 
 
-No navegador, abra o endereço `http://localhost:4200/` para acessar a página do projeto.
+No navegador, abra o endereço [http://localhost:4200](http://localhost:4200) para acessar a página do projeto.
 
 ## Tela de Gerenciamento de Espécies
 
